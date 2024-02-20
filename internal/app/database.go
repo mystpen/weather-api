@@ -24,9 +24,7 @@ func NewMongoDB(config *config.Config) *mongo.Client {
 		log.Fatal(err)
 	}
 	log.Println("Connected to MongoDB")
-	// defer client.Disconnect(ctx)
 
-	// collection := client.Database(config.DBName).Collection("weather")
 	return client
 }
 

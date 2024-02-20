@@ -2,7 +2,6 @@ package handlers
 
 import (
 	"encoding/json"
-	"log"
 	"net/http"
 
 	"github.com/mystpen/weather-api/internal/api"
@@ -11,7 +10,6 @@ import (
 func (h *Handler) weather(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/weather" {
 		http.Error(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
-		log.Println("/////")
 		return
 	}
 	switch r.Method {
@@ -38,7 +36,7 @@ func (h *Handler) weather(w http.ResponseWriter, r *http.Request) {
 		location := r.URL.Query().Get("location")
 		// update or put weather data
 		weatherData, err := api.GetWeatherInfo(h.config, location)
-		if err != nil { 
+		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
