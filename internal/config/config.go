@@ -9,8 +9,8 @@ import (
 const configFile = "config.yaml"
 
 type Config struct {
-	Token  string `yanl:"token"`
-	DBName string `yanl: "db_name"`
+	Token  string `yaml:"token"`
+	DBName string `yaml:"db_name"`
 }
 
 func New() (*Config, error) {

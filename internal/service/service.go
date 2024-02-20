@@ -11,6 +11,6 @@ type Service struct{
 
 func NewService(repo *repository.Repository) *Service{
 	return &Service{
-		WeatherService: weather.NewWeatherService(repo),
+		WeatherService: weather.NewWeatherService(repo.WeatherRepo),
 	}
 }
